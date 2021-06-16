@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://map-service-db/map-service
+    username: luke
+    password: yoda
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+graphql:
+  servlet:
+    max-query-depth: 5
+    exception-handlers-enabled: true
+  playground:
+    enabled: false
+
+voyager:
+  enabled: false
+
+frontEndUrl: http://192.168.23.128

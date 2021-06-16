@@ -1,0 +1,6 @@
+input GeneralAttributeInput {
+    id: ID!
+    communication: Boolean
+    experience: Boolean
+    resilience: Boolean
+}

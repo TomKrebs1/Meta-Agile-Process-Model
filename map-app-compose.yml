@@ -1,0 +1,83 @@
+version: "3.9"
+
+services:
+  map-service:
+    image: map-service:latest
+    container_name: map-service
+    restart: unless-stopped
+    depends_on:
+      - map-service-db
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - map-net
+      - web
+    ports:
+      - 8080:8080
+
+  map-service-db:
+    image: postgres:9.6.20-alpine
+    container_name: map-service-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: map-service
+      POSTGRES_USER: luke
+      POSTGRES_PASSWORD: yoda
+    networks:
+      - map-net
+    ports:
+      - 3307:5432
+    volumes:
+      - map_data:/var/lib/postgresql/data
+
+  map-ui:
+    image: map-ui:latest
+    container_name: map-ui
+    restart: unless-stopped
+    networks:
+      - web
+    ports:
+      - 80:80
+
+  keycloak:
+    image: jboss/keycloak:12.0.1
+    container_name: keycloak
+    restart: unless-stopped
+    environment:
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=keycloak-db
+      - DB_DATABASE=keycloak
+      - DB_USER=keycloak
+      - DB_PASSWORD=password
+      - KEYCLOAK_USER=keyEx
+      - KEYCLOAK_PASSWORD=nopeNotRelevant
+      - PROXY_ADDRESS_FORWARDING=true
+    networks:
+      - web
+      - keycloak-net
+    depends_on:
+      - keycloak-db
+    ports:
+      - 8085:8080
+
+  keycloak-db:
+    image: postgres:9.6.20-alpine
+    container_name: keycloak_db
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    networks:
+      - keycloak-net
+
+volumes:
+  postgres_data:
+  map_data:
+
+networks:
+  map-net:
+  web:
+  keycloak-net:

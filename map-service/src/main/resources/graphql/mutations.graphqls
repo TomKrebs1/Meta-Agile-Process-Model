@@ -1,0 +1,9 @@
+type Mutation {
+    updateProjectAttribute(input: ProjectAttributeInput!): ProjectAttribute
+    updateGeneralAttribute(input: GeneralAttributeInput!): GeneralAttribute
+    updatePerson(input: PersonInput!): PersonDto
+    addNewTeam(input: TeamInput!): TeamDto
+    personTeamJoin(input: JoinTeamInput!): TeamDto
+    addPersonAssessment(input: PersonAssessmentInput!): PersonAssessmentDto
+    updatePersonAssessment(input: PersonAssessmentInput!) : PersonAssessmentDto
+}

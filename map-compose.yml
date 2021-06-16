@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  map-service:
+    image: registry.gitlab.com/sqrtops/meta-agile-process-model/map-service:latest
+    container_name: map-service
+    restart: unless-stopped
+    depends_on:
+      - map-service-db
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://localhost:3100/loki/api/v1/push"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.map-service.rule=(Host(`map-service.squarerootops.de`) && Path(`/graphql`))"
+      - "traefik.http.routers.map-service.entrypoints=websecure"
+      - "traefik.http.routers.map-service.tls=true"
+      - "traefik.http.routers.map-service.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.map-service.service=map-service"
+      - "traefik.http.services.map-service.loadbalancer.server.port=8080"
+
+      - "traefik.http.routers.map-service-admin.rule=Host(`map-service.localhost`)"
+      - "traefik.http.routers.map-service-admin.entrypoints=internal"
+      - "traefik.http.routers.map-service-admin.service=map-service-admin"
+      - "traefik.http.services.map-service-admin.loadbalancer.server.port=8080"
+    networks:
+      - map-net
+      - web
+      - intranet
+    expose:
+      - 8080
+
+  map-service-db:
+    image: postgres:9.6.20-alpine
+    container_name: map-service-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: map-service
+      POSTGRES_USER: luke
+      POSTGRES_PASSWORD: yoda
+    networks:
+      - map-net
+    ports:
+      - 3307:5432
+
+  map-ui:
+    image: registry.gitlab.com/sqrtops/meta-agile-process-model/map-ui:latest
+    container_name: map-ui
+    restart: unless-stopped
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://localhost:3100/loki/api/v1/push"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.map-ui.rule=Host(`map.squarerootops.de`)"
+      - "traefik.http.routers.map-ui.entrypoints=websecure"
+      - "traefik.http.routers.map-ui.tls=true"
+      - "traefik.http.routers.map-ui.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.map-ui.service=map-ui"
+      - "traefik.http.services.map-ui.loadbalancer.server.port=80"
+    networks:
+      - web
+
+networks:
+  map-net:
+  web:
+    external: true
+  intranet:
+    external: true

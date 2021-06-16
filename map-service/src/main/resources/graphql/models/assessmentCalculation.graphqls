@@ -1,0 +1,5 @@
+type AssessmentCalculationDto {
+    personId: ID!
+    teamId: ID!
+    roles: [RoleDto]
+}

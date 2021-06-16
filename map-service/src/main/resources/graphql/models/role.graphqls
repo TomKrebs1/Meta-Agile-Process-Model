@@ -1,0 +1,5 @@
+type RoleDto {
+    roleName: String
+    affinity: Float
+    averageAffinity: Float
+}

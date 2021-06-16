@@ -1,0 +1,7 @@
+input PersonInput {
+    id: ID!
+    userName: String
+    firstName: String
+    lastName: String
+    darkModeOn: Boolean
+}

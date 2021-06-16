@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+server:
+  port: 8080
+
+graphql:
+  servlet:
+    max-query-depth: 15
+    exception-handlers-enabled: true
+  playground:
+    headers:
+      user_id: "User_A"
+    tabs:
+      - name: Map-Test Querys
+        query: classpath:playground/map_querys.graphql
+
+
+frontEndUrl: http://localhost:3000
+

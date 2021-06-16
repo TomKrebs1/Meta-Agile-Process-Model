@@ -1,0 +1,8 @@
+type PersonAssessmentDto {
+    assessmentOwner: PersonDto
+    assessmentTarget: PersonDto
+    team: TeamDto
+    generalAttribute: GeneralAttribute
+    projectAttribute: ProjectAttribute
+    isActive: Boolean
+}

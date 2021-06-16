@@ -1,0 +1,6 @@
+type GeneralAttribute {
+    id: ID
+    communication: Boolean
+    experience: Boolean
+    resilience: Boolean
+}

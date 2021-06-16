@@ -1,0 +1,124 @@
+query GET_PERSON_1 {
+    getPerson(id: "User_A", userName: "Hellrider") {
+        id
+        firstName
+        lastName
+        generalAttribute {
+            id
+            communication
+            experience
+        }
+        projectAttribute {
+            structured
+            analytical
+            id
+        }
+        joinedTeams {
+            id
+            teamName
+        }
+    }
+}
+
+query GET_PERSON_2 {
+    getPerson(id: "User_B", userName: "Roder") {
+        id
+        userName
+        joinedTeams {
+            teamName
+            inviteToken
+        }
+    }
+}
+
+query GET_TEAM {
+    getTeam(id: 5) {
+        id
+        personAssessments{
+            assessmentTarget{
+                userName
+            }
+            projectAttribute{
+                id
+                visionary
+                criticallyQuestioning
+            }
+            generalAttribute{
+                id
+                experience
+                resilience
+            }
+        }
+    }
+}
+
+query GET_CALCULATION {
+    getAssessmentCalculationForTeam(teamId: 5) {
+        personId
+        teamId
+        roles {
+            roleName
+            affinity
+            averageAffinity
+        }
+    }
+}
+
+mutation UPDATE_PERSON {
+    updatePerson(
+        input: { id: "User_A", firstName: "Max", lastName: "Mustermann"}
+    ) {
+        firstName
+    }
+}
+
+mutation UPDATE_GENERAL_ATTRIBUTE {
+    updateGeneralAttribute(input: { id: 1, communication: true }) {
+        id
+    }
+}
+
+mutation UPDATE_PROJECT_ATTRIBUTE {
+    updateProjectAttribute(input: { id: 2, structured: true }) {
+        id
+    }
+}
+
+mutation ADD_TEAM {
+    addNewTeam(input: { teamName: "SQTOPs", personToCreate: "User_A" }) {
+        id
+        inviteToken
+    }
+}
+
+mutation JOIN_TEAM {
+    personTeamJoin(
+        input: {
+            teamToken: "123"
+            personId: "User_B"
+        }
+    ) {
+        id
+    }
+}
+mutation CREATE_ASSESSMENT {
+    addPersonAssessment(input: {assessmentOwnerId: "User_A", assessmentTargetId: "User_B", teamId: "5"}) {
+        generalAttribute{id}
+        projectAttribute{id}
+    }
+}
+
+mutation CREATE_ASSESSMENT_2 {
+    addPersonAssessment(input: {assessmentOwnerId: "User_B", assessmentTargetId: "User_A", teamId: "5"}) {
+        generalAttribute{id}
+        projectAttribute{id}
+    }
+}
+
+mutation UPDATE_ASSESSMENT {
+    updatePersonAssessment(input: {assessmentOwnerId: "User_A", assessmentTargetId: "User_B", teamId: 5, isActive: true}) {
+        generalAttribute{id}
+        projectAttribute{id}
+        isActive
+    }
+}

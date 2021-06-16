@@ -1,0 +1,5 @@
+input TeamInput {
+    id: ID
+    teamName: String
+    personToCreate: String
+}

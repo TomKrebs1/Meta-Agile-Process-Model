@@ -1,0 +1,10 @@
+type PersonDto {
+    id: ID
+    userName: String
+    firstName: String
+    lastName: String
+    darkModeOn: Boolean
+    projectAttribute: ProjectAttribute
+    generalAttribute: GeneralAttribute
+    joinedTeams: [TeamDto]
+}

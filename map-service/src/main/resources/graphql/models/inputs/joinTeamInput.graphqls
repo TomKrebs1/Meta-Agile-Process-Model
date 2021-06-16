@@ -1,0 +1,4 @@
+input JoinTeamInput{
+    teamToken: String!
+    personId: ID!
+}

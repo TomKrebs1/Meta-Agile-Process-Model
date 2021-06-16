@@ -1,0 +1,7 @@
+type TeamDto {
+    id: ID!
+    teamName: String
+    inviteToken: String
+    teamMembers: [PersonDto]
+    personAssessments: [PersonAssessmentDto]
+}

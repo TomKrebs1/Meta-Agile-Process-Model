@@ -1,0 +1,6 @@
+input PersonAssessmentInput {
+    assessmentOwnerId: ID!
+    assessmentTargetId: ID!
+    teamId: ID!
+    isActive: Boolean
+}

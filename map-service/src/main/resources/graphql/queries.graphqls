@@ -1,0 +1,5 @@
+type Query {
+    getPerson(id: ID!, userName: String!): PersonDto
+    getTeam(id: ID!): TeamDto
+    getAssessmentCalculationForTeam(teamId: ID!): [AssessmentCalculationDto]
+}

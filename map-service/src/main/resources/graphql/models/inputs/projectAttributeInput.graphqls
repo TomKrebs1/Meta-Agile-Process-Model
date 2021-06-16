@@ -1,0 +1,11 @@
+input ProjectAttributeInput {
+    id: ID!
+    visionary: Boolean
+    creative: Boolean
+    costConscious: Boolean
+    criticallyQuestioning: Boolean
+    structured: Boolean
+    analytical: Boolean
+    planning: Boolean
+    implementationOriented: Boolean
+}
