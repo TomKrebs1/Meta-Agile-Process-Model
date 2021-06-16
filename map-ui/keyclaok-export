@@ -1,0 +1,111 @@
+{
+    "authenticated": true,
+    "silentCheckSsoFallback": true,
+    "enableLogging": false,
+    "responseMode": "fragment",
+    "responseType": "code",
+    "flow": "standard",
+    "clientId": "map",
+    "authServerUrl": "https://auth.squarerootops.de/auth",
+    "realm": "DEV",
+    "endpoints": {},
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIxY2YyMGYxNi1jMTRiLTRmZTAtODc2ZC02YTE2MTk3NTgwYmQifQ.eyJleHAiOjE2MTkwOTIxNTYsImlhdCI6MTYxOTA5MDM1NiwianRpIjoiZDAxYWIwYWUtNjMwZS00YTRjLThlMzItOGI5NjdjM2JmZDlhIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLnNxdWFyZXJvb3RvcHMuZGUvYXV0aC9yZWFsbXMvREVWIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLnNxdWFyZXJvb3RvcHMuZGUvYXV0aC9yZWFsbXMvREVWIiwic3ViIjoiMjA5N2I2YmEtYTYwMC00N2MzLWEwZDctMTc4NGFmYWMyOTVlIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im1hcCIsIm5vbmNlIjoiMThkMTdjMTAtNGU0Ny00ODAyLThhMzctMTE0ODdlZDU1OGIzIiwic2Vzc2lvbl9zdGF0ZSI6ImEyZjkyN2RmLTQ2YTUtNDQyMC05Y2I2LWMxOGQ1YWI0ZDI0MCIsInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUifQ.OUWlbvJhb_IeHb3ufNqE2lQpHjwi74ef_rMLiDN7Gus",
+    "refreshTokenParsed": {
+        "exp": 1619092156,
+        "iat": 1619090356,
+        "jti": "d01ab0ae-630e-4a4c-8e32-8b967c3bfd9a",
+        "iss": "https://auth.squarerootops.de/auth/realms/DEV",
+        "aud": "https://auth.squarerootops.de/auth/realms/DEV",
+        "sub": "2097b6ba-a600-47c3-a0d7-1784afac295e",
+        "typ": "Refresh",
+        "azp": "map",
+        "nonce": "18d17c10-4e47-4802-8a37-11487ed558b3",
+        "session_state": "a2f927df-46a5-4420-9cb6-c18d5ab4d240",
+        "scope": "openid email profile"
+    },
+    "idToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVRENJY3I3d2h5bkpzdFk4VWFQRnlTWHJmeGNrN3kxSFA1VjlBZkY1bVQwIn0.eyJleHAiOjE2MTkwOTA2NTYsImlhdCI6MTYxOTA5MDM1NiwiYXV0aF90aW1lIjoxNjE5MDkwMjA4LCJqdGkiOiIzMDAzNjdjMS0xMGFmLTRmYTItODY1Yy02ODA3MTNhNWZhYmYiLCJpc3MiOiJodHRwczovL2F1dGguc3F1YXJlcm9vdG9wcy5kZS9hdXRoL3JlYWxtcy9ERVYiLCJhdWQiOiJtYXAiLCJzdWIiOiIyMDk3YjZiYS1hNjAwLTQ3YzMtYTBkNy0xNzg0YWZhYzI5NWUiLCJ0eXAiOiJJRCIsImF6cCI6Im1hcCIsIm5vbmNlIjoiMThkMTdjMTAtNGU0Ny00ODAyLThhMzctMTE0ODdlZDU1OGIzIiwic2Vzc2lvbl9zdGF0ZSI6ImEyZjkyN2RmLTQ2YTUtNDQyMC05Y2I2LWMxOGQ1YWI0ZDI0MCIsImF0X2hhc2giOiJkbG5jYXQyZDh2Qzh3d1hBbjIzRXFnIiwiYWNyIjoiMCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiU2luYW4gw5Z6bWVuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2F2ZWVuZXJneSIsImdpdmVuX25hbWUiOiJTaW5hbiIsImZhbWlseV9uYW1lIjoiw5Z6bWVuIiwiZW1haWwiOiJzaW5hbi5vZUBnbWFpbC5jb20ifQ.IPFGuoDdpCmAG9nrgU9lOyGDq6t-KT4JmnuqwwExFdPIGpYEPoi2RLg2pCPMPy5vabJYAXDOm4LKYYockHfdHTKLJeJ0lLXznHwForukJCX4PMsNBLhA6IS9F9mW9Er6jkoOitw7P8FHiHy6x8_R6fO7MOS5jzGFDwVFkwlClWh9U_T_skdlnDdsonUwBjoM4n07zFtZ9LBJEUJSwsE_86qg1-PlzzNZU-vWcotdfU3Y-RT4M5kfzVGoBhC7YrzIOovxPsbKPlo4hR3pglkAbavErtHBqGeSa4C3wXlEYMm-gXD0zblZylL09zcrdJNOAR2ZZAGF7RC3bRGweM9Lcw",
+    "idTokenParsed": {
+        "exp": 1619090656,
+        "iat": 1619090356,
+        "auth_time": 1619090208,
+        "jti": "300367c1-10af-4fa2-865c-680713a5fabf",
+        "iss": "https://auth.squarerootops.de/auth/realms/DEV",
+        "aud": "map",
+        "sub": "2097b6ba-a600-47c3-a0d7-1784afac295e",
+        "typ": "ID",
+        "azp": "map",
+        "nonce": "18d17c10-4e47-4802-8a37-11487ed558b3",
+        "session_state": "a2f927df-46a5-4420-9cb6-c18d5ab4d240",
+        "at_hash": "dlncat2d8vC8wwXAn23Eqg",
+        "acr": "0",
+        "email_verified": true,
+        "name": "Sinan Özmen",
+        "preferred_username": "saveenergy",
+        "given_name": "Sinan",
+        "family_name": "Özmen",
+        "email": "sinan.oe@gmail.com"
+    },
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVRENJY3I3d2h5bkpzdFk4VWFQRnlTWHJmeGNrN3kxSFA1VjlBZkY1bVQwIn0.eyJleHAiOjE2MTkwOTA2NTYsImlhdCI6MTYxOTA5MDM1NiwiYXV0aF90aW1lIjoxNjE5MDkwMjA4LCJqdGkiOiI5YmM5NzMxZS0zMmE1LTQzNTctYWMxOC1jNmYwYmRjMzBjMmQiLCJpc3MiOiJodHRwczovL2F1dGguc3F1YXJlcm9vdG9wcy5kZS9hdXRoL3JlYWxtcy9ERVYiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMjA5N2I2YmEtYTYwMC00N2MzLWEwZDctMTc4NGFmYWMyOTVlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibWFwIiwibm9uY2UiOiIxOGQxN2MxMC00ZTQ3LTQ4MDItOGEzNy0xMTQ4N2VkNTU4YjMiLCJzZXNzaW9uX3N0YXRlIjoiYTJmOTI3ZGYtNDZhNS00NDIwLTljYjYtYzE4ZDVhYjRkMjQwIiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL21hcC5zcXVhcmVyb290b3BzLmRlIiwiaHR0cDovL2xvY2FsaG9zdDozMDAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsIkFETUlOIiwidW1hX2F1dGhvcml6YXRpb24iLCJVU0VSIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiU2luYW4gw5Z6bWVuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2F2ZWVuZXJneSIsImdpdmVuX25hbWUiOiJTaW5hbiIsImZhbWlseV9uYW1lIjoiw5Z6bWVuIiwiZW1haWwiOiJzaW5hbi5vZUBnbWFpbC5jb20ifQ.CTjeDhQb4X1F-gQ2NOrgB4oCU307LorXFkNXB3RCueZmQ9LILpQUeNSinLoBuTawya_w1utWEciZfeH-E_Mz841F8NS-WMplQMqZ2nhuNQ8-JtJsy6VPGSSbZQ9ckxv0yxsw9Ulvoqx9ktIrUG4W4lkVer7jrkP97vVYxCepbteDp79i5P9qV9ivPdBjkSwCvWMTsJ_jdYyRv-6TP5c9llEHjnRmlKOLhHs35n6w0UIxQdhT7bunvo9uy8zyrT3kJcalOrymIkQutNw_n2FuRwaKEigJ5LJuDAeI6m2Oj12eA8nYeK1sdrljmZD-AoQyV7UlUgdEgKJGHVxI0I-CEA",
+    "tokenParsed": {
+        "exp": 1619090656,
+        "iat": 1619090356,
+        "auth_time": 1619090208,
+        "jti": "9bc9731e-32a5-4357-ac18-c6f0bdc30c2d",
+        "iss": "https://auth.squarerootops.de/auth/realms/DEV",
+        "aud": "account",
+        "sub": "2097b6ba-a600-47c3-a0d7-1784afac295e",
+        "typ": "Bearer",
+        "azp": "map",
+        "nonce": "18d17c10-4e47-4802-8a37-11487ed558b3",
+        "session_state": "a2f927df-46a5-4420-9cb6-c18d5ab4d240",
+        "acr": "0",
+        "allowed-origins": [
+            "https://map.squarerootops.de",
+            "http://localhost:3000"
+        ],
+        "realm_access": {
+            "roles": [
+                "offline_access",
+                "ADMIN",
+                "uma_authorization",
+                "USER"
+            ]
+        },
+        "resource_access": {
+            "account": {
+                "roles": [
+                    "manage-account",
+                    "manage-account-links",
+                    "view-profile"
+                ]
+            }
+        },
+        "scope": "openid email profile",
+        "email_verified": true,
+        "name": "Sinan Özmen",
+        "preferred_username": "saveenergy",
+        "given_name": "Sinan",
+        "family_name": "Özmen",
+        "email": "sinan.oe@gmail.com"
+    },
+    "sessionId": "a2f927df-46a5-4420-9cb6-c18d5ab4d240",
+    "subject": "2097b6ba-a600-47c3-a0d7-1784afac295e",
+    "realmAccess": {
+        "roles": [
+            "offline_access",
+            "ADMIN",
+            "uma_authorization",
+            "USER"
+        ]
+    },
+    "resourceAccess": {
+        "account": {
+            "roles": [
+                "manage-account",
+                "manage-account-links",
+                "view-profile"
+            ]
+        }
+    },
+    "timeSkew": 0
+}
