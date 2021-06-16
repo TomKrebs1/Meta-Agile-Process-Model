@@ -1,0 +1,75 @@
+stages:
+  - build
+  - publish
+  - cleanup
+  - deploy
+
+variables:
+  IMAGE_NAME_UI: "registry.gitlab.com/sqrtops/meta-agile-process-model/map-ui"
+  IMAGE_NAME_SERVICE: "registry.gitlab.com/sqrtops/meta-agile-process-model/map-service"
+  IMAGE_TAG: $CI_PIPELINE_IID
+  DOCKER_FILE_LOCATION: "./map-ui/Dockerfile"
+  PACK_VERSION: "v0.18.0"
+
+buildMap-UI:
+  image: docker
+  stage: build
+  only:
+    refs:
+      - master
+  script:
+    - docker build -t $IMAGE_NAME_UI:$IMAGE_TAG -f $DOCKER_FILE_LOCATION map-ui/
+
+buildBeerService:
+  image: maven:3.8.1-adoptopenjdk-11
+  stage: build
+  only:
+    refs:
+      - master
+  script:
+    - mvn -f map-service/pom.xml spring-boot:build-image -Dspring-boot.build-image.imageName=$IMAGE_NAME_SERVICE:$IMAGE_TAG
+
+publishImages:
+  image: docker
+  stage: publish
+  only:
+    refs:
+      - master
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker tag $IMAGE_NAME_UI:$IMAGE_TAG $IMAGE_NAME_UI:latest
+    - docker tag $IMAGE_NAME_SERVICE:$IMAGE_TAG $IMAGE_NAME_SERVICE:latest
+    - docker push $IMAGE_NAME_UI:$IMAGE_TAG
+    - docker push $IMAGE_NAME_UI:latest
+    - docker push $IMAGE_NAME_SERVICE:$IMAGE_TAG
+    - docker push $IMAGE_NAME_SERVICE:latest
+
+cleanupImages:
+  image: docker
+  stage: cleanup
+  only:
+    refs:
+      - master
+  allow_failure: true
+  script:
+    - docker image rm $IMAGE_NAME_UI:$IMAGE_TAG
+    - docker image rm $IMAGE_NAME_SERVICE:$IMAGE_TAG
+
+deployMapService:
+  image: docker/compose:alpine-1.28.2
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - docker-compose -f map-compose.yml up -d map-service-db
+    - docker-compose -f map-compose.yml up -d map-service
+
+deployMapUi:
+  image: docker/compose:alpine-1.28.2
+  stage: deploy
+  only:
+    refs:
+      - master
+  script:
+    - docker-compose -f map-compose.yml up -d map-ui
