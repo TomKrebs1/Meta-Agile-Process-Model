@@ -7,6 +7,7 @@ import {useReactiveVar} from "@apollo/client";
 import {keycloak} from "../keycloak";
 import RoleEvaluation from "../Evaluation/roleEvaluation";
 import TeamEvaluation from "../Evaluation/teamEvaluation";
+import TeamRoles from "../RolesPage/teamRoles";
 
 export default function Router() {
   const router = useReactiveVar(route);
@@ -49,6 +50,8 @@ export default function Router() {
       return <RoleEvaluation/>
     case 'teamEvaluation':
       return <TeamEvaluation/>
+    case 'teamRoles':
+      return <TeamRoles/>;
     default:
       return null;
   }

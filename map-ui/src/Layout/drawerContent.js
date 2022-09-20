@@ -124,6 +124,31 @@ export default function DrawerContent() {
                     </ListItem>
                 ))}
           </List>
+          <Divider/>
+          <List>
+            <ListItem className={classes.drawerItemsNested}>
+              <ListItemText>
+                <Typography variant="button">
+                  Team Verteilung
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            {data === undefined ? null : data.getPerson.joinedTeams.map(
+                (team) => (
+                    <ListItem
+                        button
+                        key={team.id}
+                        selected={router === 'teamRoles' && team.id === active}
+                        onClick={(event) => handleClick(event, 'teamRoles', team.id)}
+                        className={classes.drawerItemsNested}
+                    >
+                      <ListItemIcon>
+                        <Group/>
+                      </ListItemIcon>
+                      <ListItemText primary={team.teamName}/>
+                    </ListItem>
+                ))}
+          </List>
         </div>
         <div className={classes.alignBottom}>
           <Avatar alt={userName().toUpperCase()} src="/some.jpg"
