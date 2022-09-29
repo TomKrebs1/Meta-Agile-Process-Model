@@ -3,12 +3,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Card, CardContent, CardHeader, Fab, IconButton} from "@material-ui/core";
 import React from "react";
 import {ArrowBack, Assessment, MoreVert} from "@material-ui/icons";
-import TeamChart from "../Evaluation/teamChart";
 import {useQuery, useReactiveVar} from "@apollo/client";
-import {GET_CALCULATION, GET_PERSON, GET_TEAM} from "../Service/queryService";
+import {GET_CALCULATION, GET_TEAM} from "../Service/queryService";
 import {gql} from "@apollo/client/core";
-import {getDisplayName} from "@apollo/client/react/hoc/hoc-utils";
-import {fieldNameFromStoreName} from "@apollo/client/cache";
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
