@@ -122,24 +122,6 @@ export default function RoleEvaluation() {
       )
   );
 
-
-  /*
-teamData = {
-  labels: [roles],
-  datasets: [{
-    userName: [0, 1, 0, ...],
-    colors: {
-      backgroundColor
-      borderColor
-      pointBackgroundColor
-      pointBorderColor
-      pointHoverBackgroundColor
-      pointHoverBorderColor
-    }
-  },{...}]
-}
- */
-
   return (
       <div className={classes.cardGrid}>
         <div className={classes.nav}>
