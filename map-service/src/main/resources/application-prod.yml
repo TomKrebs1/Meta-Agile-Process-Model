@@ -20,4 +20,4 @@ graphql:
 voyager:
   enabled: false
 
-frontEndUrl: http://192.168.23.128
+frontEndUrl: http://192.168.23.119
